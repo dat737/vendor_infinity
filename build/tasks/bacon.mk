@@ -15,7 +15,7 @@
 
 # -----------------------------------------------------------------
 # Infinity OTA update package
-INFINITY_TARGET_PACKAGE := $(PRODUCT_OUT)/$(ZIP_NAME).zip
+INFINITY_TARGET_PACKAGE := $(PRODUCT_OUT)/Project_Infinity-X-3.0-xaga-$(INFINITY_BUILD_DATE)-GAPPS-UNOFFICIAL.zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
