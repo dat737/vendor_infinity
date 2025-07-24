@@ -177,6 +177,9 @@ ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
         ro.usb.uvc.enabled=true
 endif
 
+# Broken config
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleSettingsConfig
@@ -283,10 +286,8 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Storage manager
-ifeq ($(WITH_GAPPS),false)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
-endif
 
 # Default wifi country code
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -302,9 +303,9 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 endif
 
 # Root
+ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
     adb_root
-ifneq ($(TARGET_BUILD_VARIANT),user)
 ifeq ($(WITH_SU),true)
 PRODUCT_PACKAGES += \
     su
